@@ -1,95 +1,143 @@
-ƒ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luca Zanolini — Research Scientist, Ethereum Foundation</title>
-<meta name="description" content="Research Scientist at the Ethereum Foundation working on consensus protocols, distributed systems, and faster finality for Ethereum.">
+<title>Luca Zanolini — Consensus & Distributed Systems Researcher</title>
+<meta name="description" content="Consensus protocols, Byzantine fault tolerance, and the security foundations of distributed systems. Previously Research Scientist at the Ethereum Foundation; co-designer of Ethereum's 3-Slot Finality.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luca Zanolini — Consensus & Distributed Systems Researcher">
+<meta property="og:description" content="Consensus protocols, Byzantine fault tolerance, and the security foundations of distributed systems. Previously Research Scientist at the Ethereum Foundation.">
+<meta property="og:image" content="profile.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Luca Zanolini — Consensus & Distributed Systems Researcher">
+<meta name="twitter:description" content="Consensus protocols, Byzantine fault tolerance, and the security foundations of distributed systems.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%237D1F3F' stroke-width='2'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%237D1F3F' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#F8F7F4;--bg2:#F2F0EC;--black:#0D0D0D;--gray-dark:#374151;--gray-mid:#6B7280;--gray-light:#9CA3AF;--rule:#D1D5DB;--blue:#627EEA;--max:880px}
+:root{
+  --bg:#FAF8F5;--bg2:#F3EFE9;--ink:#201A18;--body:#3D3733;--muted:#6E6560;--faint:#948B85;
+  --rule:#DDD5CE;--accent:#7D1F3F;--accent-soft:rgba(125,31,63,0.22);--accent-wash:#F7E8EE;
+  --max:900px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#171213;--bg2:#1F191A;--ink:#EDE7E1;--body:#C9C0BA;--muted:#A2978F;--faint:#7C726C;
+    --rule:#372F30;--accent:#C9748C;--accent-soft:rgba(201,116,140,0.30);--accent-wash:#2A1C22;
+  }
+}
 html{scroll-behavior:smooth}
-body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--black);font-size:16px;line-height:1.8}
-nav{position:fixed;top:0;left:0;right:0;background:rgba(248,247,244,0.95);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid var(--rule)}
-.nav-inner{max-width:var(--max);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
-.nav-name{font-size:13px;font-weight:600;color:var(--black);text-decoration:none}
-.nav-links{display:flex;gap:24px}
-.nav-links a{font-size:11px;font-weight:500;color:var(--gray-mid);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--black)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.75}
+::selection{background:var(--accent-soft)}
+.serif{font-family:'Fraunces',serif}
+nav{position:fixed;top:0;left:0;right:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:15px 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1.2px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
 .w{max-width:var(--max);margin:0 auto;padding:0 32px}
-.hero-s{padding:96px 0 56px}
-.hero{display:grid;grid-template-columns:148px 1fr;gap:44px;align-items:start}
-.photo{width:180px;height:180px;border-radius:50%;overflow:hidden;flex-shrink:0}
+/* HERO */
+.hero-s{padding:112px 0 60px;position:relative;overflow:hidden}
+.motif{position:absolute;right:-60px;top:40px;width:420px;height:420px;opacity:0.5;pointer-events:none}
+.motif circle{fill:none;stroke:var(--accent);stroke-width:0.6;opacity:0.18}
+.hero{display:grid;grid-template-columns:150px 1fr;gap:44px;align-items:start;position:relative}
+.photo{width:150px;height:150px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--rule)}
 .photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
-.h-name{font-size:32px;font-weight:600;color:var(--black);line-height:1.1;margin-bottom:5px}
-.h-role{font-size:13px;font-weight:400;color:var(--blue);margin-bottom:3px}
-.h-loc{font-size:12px;font-weight:300;color:var(--gray-light);margin-bottom:20px}
-.bio p{font-size:14px;color:var(--gray-dark);line-height:1.85;margin-bottom:12px;max-width:560px}
+h1{font-family:'Fraunces',serif;font-size:42px;font-weight:600;color:var(--ink);line-height:1.08;margin-bottom:8px;letter-spacing:-0.5px}
+.h-role{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:2px}
+.h-prev{font-size:12.5px;font-weight:400;color:var(--muted);margin-bottom:3px}
+.h-loc{font-size:12px;font-weight:300;color:var(--faint);margin-bottom:22px}
+.bio p{font-size:14.5px;color:var(--body);line-height:1.85;margin-bottom:13px;max-width:600px}
 .bio p:last-child{margin-bottom:0}
-a.il{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(98,126,234,0.25)}
-a.il:hover{border-color:var(--blue)}
-.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.social a{font-size:11px;font-weight:500;color:var(--gray-mid);text-decoration:none;letter-spacing:1px;text-transform:uppercase;padding-bottom:2px;border-bottom:1px solid var(--rule);transition:color 0.2s,border-color 0.2s}
-.social a:hover{color:var(--blue);border-color:var(--blue)}
+a.il{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);transition:border-color 0.2s}
+a.il:hover{border-color:var(--accent)}
+.social{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.social a{font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;padding-bottom:2px;border-bottom:1px solid var(--rule);transition:color 0.2s,border-color 0.2s}
+.social a:hover{color:var(--accent);border-color:var(--accent)}
+.social a.cv{color:var(--accent);border-color:var(--accent-soft)}
 hr{border:none;border-top:1px solid var(--rule)}
-.s{padding:44px 0}
+section{padding:48px 0}
 .s-alt{background:var(--bg2)}
-.s-alt .w{padding-top:44px;padding-bottom:44px}
-.ey{font-size:10px;font-weight:600;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:6px}
-.st{font-size:22px;font-weight:600;color:var(--black);margin-bottom:4px}
-.rule{width:32px;height:1px;background:var(--rule);margin:16px 0 24px}
-.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;overflow:hidden;margin-bottom:36px}
-.hl-cell{background:var(--bg);padding:20px 22px}
-.hl-num{font-size:10px;font-weight:600;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.hl-title{font-size:13px;font-weight:500;color:var(--black);margin-bottom:6px;line-height:1.5}
+.ey{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:6px}
+h2{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--ink);margin-bottom:4px;letter-spacing:-0.2px}
+.rule{width:36px;height:2px;background:var(--accent);opacity:0.55;margin:16px 0 26px;border:none}
+/* NEWS */
+.news-item{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:9px 0;font-size:13.5px;border:none}
+.news-date{color:var(--faint);font-weight:300;font-size:12px;padding-top:1px}
+.news-body{color:var(--body);font-weight:300;line-height:1.65}
+.news-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+.news-body a:hover{border-color:var(--accent)}
+/* HIGHLIGHT / CARD GRIDS */
+.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:36px}
+.hl-cell{background:var(--bg);padding:22px}
+.s-alt .hl-cell{background:var(--bg2)}
+.hl-num{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}
+.hl-title{font-family:'Fraunces',serif;font-size:15.5px;font-weight:500;color:var(--ink);margin-bottom:7px;line-height:1.45}
 .hl-title a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
-.hl-title a:hover{border-color:var(--blue)}
-.hl-desc{font-size:12px;font-weight:300;color:var(--gray-mid);line-height:1.65}
+.hl-title a:hover{border-color:var(--accent)}
+.hl-desc{font-size:12.5px;font-weight:300;color:var(--muted);line-height:1.7}
 .collab-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.collab-pill{font-size:11px;font-weight:400;color:var(--gray-mid);background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:2px 8px}
-.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
-.r-cell{background:var(--bg);padding:20px 22px}
-.r-label{font-size:11px;font-weight:600;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:7px}
-.r-desc{font-size:13px;font-weight:300;color:var(--gray-mid);line-height:1.7}
-.press-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.collab-pill{font-size:11px;font-weight:400;color:var(--muted);background:var(--bg2);border:1px solid var(--rule);border-radius:3px;padding:2px 9px}
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.r-cell{background:var(--bg);padding:22px}
+.r-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.r-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+/* TEACHING / PROJECT CARDS */
+.card{display:block;background:var(--bg);border:1px solid var(--rule);border-radius:3px;padding:24px;margin-bottom:14px;text-decoration:none;transition:border-color 0.2s}
+.s-alt .card{background:var(--bg2)}
+a.card:hover{border-color:var(--accent)}
+.card-kicker{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.card-title{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.4}
+.card-desc{font-size:13.5px;font-weight:300;color:var(--muted);line-height:1.75;max-width:680px}
+.card-topics{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.topic{font-size:10.5px;font-weight:500;color:var(--muted);background:var(--accent-wash);border-radius:3px;padding:2px 8px;letter-spacing:0.3px}
+/* PRESS */
+.press-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
 .press-cell{background:var(--bg2);padding:18px 22px;text-decoration:none;display:block;transition:background 0.15s}
-.press-cell:hover{background:var(--rule)}
-.press-source{font-size:10px;font-weight:600;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
-.press-title{font-size:13px;font-weight:500;color:var(--black);line-height:1.5;margin-bottom:4px}
-.press-desc{font-size:12px;font-weight:300;color:var(--gray-mid);line-height:1.6}
-.item{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:start}
+.press-cell:hover{background:var(--accent-wash)}
+.press-source{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.press-title{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.5;margin-bottom:4px}
+.press-desc{font-size:12.5px;font-weight:300;color:var(--muted);line-height:1.65}
+/* LIST ITEMS (papers, talks, writing) */
+.item{display:grid;grid-template-columns:68px 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--rule);align-items:start}
 .item:first-child{border-top:1px solid var(--rule)}
-.cl{font-size:11px;font-weight:300;color:var(--gray-light);padding-top:2px;line-height:1.5}
-.it{font-size:13px;font-weight:500;color:var(--black);margin-bottom:3px;line-height:1.5}
+.cl{font-size:11px;font-weight:300;color:var(--faint);padding-top:2px;line-height:1.5}
+.it{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.5}
 .it a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
-.it a:hover{border-color:var(--blue)}
+.it a:hover{border-color:var(--accent)}
 .im{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:3px}
-.venue{font-size:11px;font-weight:300;color:var(--gray-mid);font-style:italic}
-.tag{font-size:10px;font-weight:600;color:var(--blue);background:#EEF0FC;border-radius:2px;padding:1px 6px;letter-spacing:0.5px;text-transform:uppercase;font-style:normal}
-.idesc{font-size:12px;font-weight:300;color:var(--gray-mid);line-height:1.65}
-.tlink{font-size:10px;font-weight:600;color:var(--blue);text-decoration:none;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--blue);padding-bottom:1px;display:inline-block;margin-top:4px}
-.more{margin-top:16px;font-size:12px;font-weight:300;color:var(--gray-light)}
-.more a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(98,126,234,0.25)}
+.venue{font-size:11.5px;font-weight:300;color:var(--muted);font-style:italic}
+.tag{font-size:10px;font-weight:600;color:var(--accent);background:var(--accent-wash);border-radius:3px;padding:1px 7px;letter-spacing:0.5px;text-transform:uppercase;font-style:normal}
+.idesc{font-size:12.5px;font-weight:300;color:var(--muted);line-height:1.7}
+.tlink{font-size:10px;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--accent);padding-bottom:1px;display:inline-block;margin-top:5px}
+.more{margin-top:16px;font-size:12.5px;font-weight:300;color:var(--faint)}
+.more a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+/* CONTACT */
 .c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.c-label{font-size:10px;font-weight:600;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
-.c-val{font-size:13px;font-weight:400;color:var(--black)}
-.c-val a{color:var(--black);text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color 0.2s}
-.c-val a:hover{border-color:var(--blue)}
+.c-label{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:7px}
+.c-val{font-size:13px;font-weight:400;color:var(--ink);word-break:break-word}
+.c-val a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color 0.2s}
+.c-val a:hover{border-color:var(--accent)}
 footer{padding:22px 0;border-top:1px solid var(--rule)}
 .footer-inner{max-width:var(--max);margin:0 auto;padding:0 32px;display:flex;justify-content:space-between}
-footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
+footer span{font-size:11px;font-weight:300;color:var(--faint)}
 @media(max-width:680px){
   .nav-inner{padding:13px 16px}
-  .nav-links{gap:14px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:10px}
   .w{padding:0 16px}
   .hero{grid-template-columns:1fr;gap:18px}
-  .photo{width:100px;height:100px}
+  .photo{width:104px;height:104px}
+  h1{font-size:32px}
+  .motif{display:none}
   .hl-grid,.r-grid{grid-template-columns:1fr}
   .c-grid{grid-template-columns:1fr 1fr;gap:18px}
   .footer-inner{padding:0 16px;flex-direction:column;gap:4px}
-  .s-alt .w{padding-top:36px;padding-bottom:36px}
+  .news-item{grid-template-columns:72px 1fr}
 }
 </style>
 </head>
@@ -100,6 +148,7 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
     <a class="nav-name" href="#about">Luca Zanolini</a>
     <div class="nav-links">
       <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
       <a href="#publications">Papers</a>
       <a href="#talks">Talks</a>
       <a href="#writing">Writing</a>
@@ -109,302 +158,395 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
 </nav>
 
 <!-- HERO -->
-<div class="hero-s" id="about">
+<header class="hero-s" id="about">
+  <svg class="motif" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="160" cy="200" r="130"/>
+    <circle cx="240" cy="200" r="130"/>
+    <circle cx="200" cy="130" r="130"/>
+  </svg>
   <div class="w">
     <div class="hero">
       <div class="photo"><img src="profile.jpg" alt="Luca Zanolini"></div>
       <div>
-        <div class="h-name">Luca Zanolini</div>
-        <div class="h-role">Research Scientist · Ethereum Foundation</div>
+        <h1>Luca Zanolini</h1>
+        <div class="h-role">Consensus &amp; Distributed Systems Researcher</div>
+        <div class="h-prev">prev. Research Scientist, Ethereum Foundation</div>
         <div class="h-loc">Seoul, Korea</div>
         <div class="bio">
-          <p>I am a Research Scientist at the <a class="il" href="https://ethereum.org/en/foundation/">Ethereum Foundation</a>, working on the long-term evolution of Ethereum's consensus protocol as part of the Protocol Consensus team. My current focus is on <a class="il" href="https://ethereum.org/roadmap/single-slot-finality/">faster finality</a> — the formal question of when a distributed network can irreversibly confirm a transaction — and on designing protocols that achieve this efficiently, securely, and under realistic network assumptions.</p>
-          <p>More broadly, my research spans consensus protocols, Byzantine fault tolerance, and the security foundations of distributed systems. I hold a PhD in Computer Science from the <a class="il" href="https://crypto.unibe.ch">University of Bern</a>, where I worked under Prof. <a class="il" href="https://crypto.unibe.ch/cc/">Christian Cachin</a> on the theory of asymmetric trust — a formal model allowing different participants in a network to hold different trust assumptions about each other.</p>
-          <p>My academic background is in Mathematics, studied at Università Cattolica del Sacro Cuore, with a focus on abstract algebra and cryptography.</p>
+          <p>I work on consensus protocols, Byzantine fault tolerance, and the security foundations of distributed systems — the formal question of how mutually distrusting machines agree, and when a network can irreversibly commit to a decision.</p>
+          <p>Until September 2026 I was a Research Scientist on the <a class="il" href="https://ethereum.org/en/foundation/" target="_blank" rel="noopener">Ethereum Foundation</a>'s Protocol Consensus team, working on the long-term evolution of Ethereum's consensus layer: I co-designed <a class="il" href="https://arxiv.org/abs/2411.00558" target="_blank" rel="noopener">3-Slot Finality</a>, Ethereum's planned faster-finality upgrade, co-authored the security analysis of its fork-choice rule (<a class="il" href="https://arxiv.org/abs/2302.11326" target="_blank" rel="noopener">RLMD-GHOST</a>, IEEE CSF 2024), and contributed the <a class="il" href="https://github.com/ethereum/epbs-security-analysis" target="_blank" rel="noopener">security analysis</a> of enshrined proposer–builder separation. I hold a PhD from the <a class="il" href="https://crypto.unibe.ch" target="_blank" rel="noopener">University of Bern</a>, where I developed the theory of asymmetric trust under Prof. <a class="il" href="https://crypto.unibe.ch/cc/" target="_blank" rel="noopener">Christian Cachin</a>; my background is in Mathematics (Università Cattolica del Sacro Cuore), with a focus on abstract algebra and cryptography.</p>
+          <p>I teach the way I like to learn — by building. As a Visiting Scholar at the University of Cambridge (2025–26) I supervised students in Concurrent and Distributed Systems, and my open course <a class="il" href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">Concurrent and Distributed Systems in Rust</a> implements the field's classical protocols from scratch as executable, adversarially tested artifacts. My current research direction applies distributed-systems rigor to autonomous AI: reliable infrastructure for cooperating agent systems.</p>
         </div>
         <div class="social">
-          <a href="mailto:luca.zanolini@ethereum.org">Email</a>
-          <a href="https://x.com/luca_zanolini" target="_blank">X</a>
-          <a href="https://www.linkedin.com/in/luca-zanolini/" target="_blank">LinkedIn</a>
-          <a href="https://scholar.google.com/citations?user=oi4uoSgAAAAJ&hl=en" target="_blank">Scholar</a>
-          <a href="https://dblp.uni-trier.de/pid/265/5787.html" target="_blank">DBLP</a>
+          <a class="cv" href="Luca_Zanolini_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="mailto:lucazanolini1992@gmail.com">Email</a>
+          <a href="https://github.com/luca-zanolini" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/luca_zanolini" target="_blank" rel="noopener">X</a>
+          <a href="https://www.linkedin.com/in/luca-zanolini/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=oi4uoSgAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://dblp.uni-trier.de/pid/265/5787.html" target="_blank" rel="noopener">DBLP</a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</header>
+
+<hr>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="w">
+    <div class="ey">Recent</div>
+    <h2>News</h2>
+    <div class="rule"></div>
+    <div class="news-item"><div class="news-date">Sep 2026</div><div class="news-body">Released <a href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">Concurrent and Distributed Systems in Rust</a> — a 12-module open course building Raft, PBFT, Byzantine broadcast, concurrency control, and CRDTs from scratch.</div></div>
+    <div class="news-item"><div class="news-date">Aug 2026</div><div class="news-body">Invited research seminar at KAIST School of Computing: <em>What Does ePBS Actually Guarantee?</em></div></div>
+    <div class="news-item"><div class="news-date">Apr 2026</div><div class="news-body">Talks in Seoul: <em>The Whys Behind Ethereum's Consensus Design</em> at BUIDL Asia 2026, and the closing talk at Ethereum Korea One.</div></div>
+    <div class="news-item"><div class="news-date">2026</div><div class="news-body">Two papers at Financial Cryptography 2026: <a href="https://arxiv.org/abs/2601.03862" target="_blank" rel="noopener">Majorum</a> and <a href="https://eprint.iacr.org/2025/1003" target="_blank" rel="noopener">Low-Latency Dynamically Available Total Order Broadcast</a>.</div></div>
+    <div class="news-item"><div class="news-date">Nov 2025</div><div class="news-body"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank" rel="noopener">Finality Is in the Eye of the Behodler</a>, with Vitalik Buterin and Ittai Abraham, on Decentralized Thoughts.</div></div>
+    <div class="news-item"><div class="news-date">2025</div><div class="news-body"><a href="https://arxiv.org/abs/2504.12218" target="_blank" rel="noopener">Accountable Liveness</a> at ACM CCS 2025 · <a href="https://arxiv.org/abs/2505.17891" target="_blank" rel="noopener">DAG-based Consensus with Asymmetric Trust</a> at PODC 2025 · <a href="https://arxiv.org/abs/2310.11331" target="_blank" rel="noopener">TOB-SVD</a> at ICDCS 2025.</div></div>
+  </div>
+</section>
 
 <hr>
 
 <!-- RESEARCH HIGHLIGHTS + INTERESTS -->
-<div id="research">
-  <div class="s">
-    <div class="w">
-      <div class="ey">Selected Work</div>
-      <div class="st">Research highlights</div>
-      <div class="rule"></div>
-      <div class="hl-grid">
-        <div class="hl-cell">
-          <div class="hl-num">Consensus · 2025</div>
-          <div class="hl-title"><a href="https://arxiv.org/abs/2504.12218" target="_blank">Accountable Liveness</a></div>
-          <div class="hl-desc">Proved when and how validators can be formally identified as responsible for stalling Ethereum. Rigorous foundations for Ethereum's inactivity leak mechanism. Published at ACM CCS 2025.</div>
-        </div>
-        <div class="hl-cell">
-          <div class="hl-num">Ethereum · 2024</div>
-          <div class="hl-title"><a href="https://arxiv.org/abs/2411.00558" target="_blank">3-Slot-Finality Protocol for Ethereum</a></div>
-          <div class="hl-desc">Reduces Ethereum's finalization from 64–95 slots to just 3, combining a dynamically available protocol with a partially synchronous finality gadget.</div>
-        </div>
-        <div class="hl-cell">
-          <div class="hl-num">Writing · 2025</div>
-          <div class="hl-title"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank">Finality Is in the Eye of the Behodler</a></div>
-          <div class="hl-desc">With Vitalik Buterin and Ittai Abraham. A framework for the multiple layers of finality — probabilistic, cryptoeconomic, and social. Published on Decentralized Thoughts.</div>
-        </div>
+<section id="research">
+  <div class="w">
+    <div class="ey">Selected Work</div>
+    <h2>Research highlights</h2>
+    <div class="rule"></div>
+    <div class="hl-grid">
+      <div class="hl-cell">
+        <div class="hl-num">Consensus · 2025</div>
+        <div class="hl-title"><a href="https://arxiv.org/abs/2504.12218" target="_blank" rel="noopener">Accountable Liveness</a></div>
+        <div class="hl-desc">Proved when and how validators can be formally identified as responsible for stalling Ethereum. Rigorous foundations for Ethereum's inactivity leak mechanism. Published at ACM CCS 2025.</div>
       </div>
-
-      <div class="ey">Collaborators</div>
-      <div style="margin-top:8px;margin-bottom:10px;font-size:13px;font-weight:300;color:var(--gray-mid);max-width:560px">I work with researchers across academia and industry, including:</div>
-      <div class="collab-row">
-        <span class="collab-pill">Vitalik Buterin · Ethereum</span>
-        <span class="collab-pill">Ittai Abraham · VMware Research</span>
-        <span class="collab-pill">Joachim Neu · a16z crypto Research</span>
-        <span class="collab-pill">Tim Roughgarden · Columbia / a16z crypto</span>
-        <span class="collab-pill">Andrew Lewis-Pye · LSE</span>
-        <span class="collab-pill">Kartik Nayak · Duke University</span>
-        <span class="collab-pill">Christian Cachin · University of Bern</span>
+      <div class="hl-cell">
+        <div class="hl-num">Ethereum · 2024</div>
+        <div class="hl-title"><a href="https://arxiv.org/abs/2411.00558" target="_blank" rel="noopener">3-Slot-Finality Protocol for Ethereum</a></div>
+        <div class="hl-desc">Reduces Ethereum's finalization from 64–95 slots to just 3, combining a dynamically available protocol with a partially synchronous finality gadget.</div>
       </div>
+      <div class="hl-cell">
+        <div class="hl-num">Writing · 2025</div>
+        <div class="hl-title"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank" rel="noopener">Finality Is in the Eye of the Behodler</a></div>
+        <div class="hl-desc">With Vitalik Buterin and Ittai Abraham. A framework for the multiple layers of finality — probabilistic, cryptoeconomic, and social. Published on Decentralized Thoughts.</div>
+      </div>
+    </div>
 
-      <div class="rule" style="margin-top:32px"></div>
-      <div class="ey">Research Interests</div>
-      <div style="margin-bottom:20px"></div>
-      <div class="r-grid">
-        <div class="r-cell">
-          <div class="r-label">Consensus Protocols</div>
-          <div class="r-desc">Designing and analyzing protocols for distributed agreement, with a focus on finality, safety, and liveness under adversarial conditions. Current work includes dynamically available protocols, ebb-and-flow consensus protocols, and fast confirmation rules for Ethereum.</div>
-        </div>
-        <div class="r-cell">
-          <div class="r-label">Distributed Systems</div>
-          <div class="r-desc">Theoretical foundations of fault-tolerant distributed computation and Byzantine fault tolerance. Particular interest in models of trust — including asymmetric and heterogeneous trust assumptions — and their formal treatment.</div>
-        </div>
-        <div class="r-cell">
-          <div class="r-label">Blockchain Security</div>
-          <div class="r-desc">Studying the security of blockchain protocols from first principles — analyzing fork choice rules, finality gadgets, and the interplay between safety and liveness. Includes work on asymmetric trust models, quorum systems, and the sleepy model of consensus.</div>
-        </div>
+    <div class="ey">Collaborators</div>
+    <div style="margin-top:8px;margin-bottom:10px;font-size:13px;font-weight:300;color:var(--muted);max-width:560px">I work with researchers across academia and industry, including:</div>
+    <div class="collab-row">
+      <span class="collab-pill">Vitalik Buterin · Ethereum</span>
+      <span class="collab-pill">Ittai Abraham · VMware Research</span>
+      <span class="collab-pill">Joachim Neu · a16z crypto Research</span>
+      <span class="collab-pill">Tim Roughgarden · Columbia / a16z crypto</span>
+      <span class="collab-pill">Andrew Lewis-Pye · LSE</span>
+      <span class="collab-pill">Kartik Nayak · Duke University</span>
+      <span class="collab-pill">Christian Cachin · University of Bern</span>
+    </div>
+
+    <div class="rule" style="margin-top:34px"></div>
+    <div class="ey">Research Interests</div>
+    <div style="margin-bottom:20px"></div>
+    <div class="r-grid">
+      <div class="r-cell">
+        <div class="r-label">Consensus Protocols</div>
+        <div class="r-desc">Designing and analyzing protocols for distributed agreement, with a focus on finality, safety, and liveness under adversarial conditions. Includes dynamically available protocols, ebb-and-flow consensus, and fast confirmation rules for Ethereum.</div>
+      </div>
+      <div class="r-cell">
+        <div class="r-label">Distributed Systems</div>
+        <div class="r-desc">Theoretical foundations of fault-tolerant distributed computation and Byzantine fault tolerance. Particular interest in models of trust — asymmetric and heterogeneous trust assumptions — and their formal treatment.</div>
+      </div>
+      <div class="r-cell">
+        <div class="r-label">Reliable Agent Systems</div>
+        <div class="r-desc">An emerging direction: applying distributed-systems rigor — consensus, leases, idempotency, Byzantine fault models, verifiable evidence — to infrastructure where autonomous AI agents cooperate across machines.</div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<hr>
+
+<!-- TEACHING -->
+<section class="s-alt" id="teaching">
+  <div class="w">
+    <div class="ey">Teaching</div>
+    <h2>Teaching by building</h2>
+    <div class="rule"></div>
+    <a class="card" href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">
+      <div class="card-kicker">Open Course · 2026</div>
+      <div class="card-title">Concurrent and Distributed Systems in Rust</div>
+      <div class="card-desc">A 12-module course that teaches distributed systems by implementing them: every module is a self-standing lecture — formal system model, property specifications, algorithm and correctness argument, exercises, verified references — paired with working Rust implementations and reproducible failure demos. The classical anomalies and attacks are not described but <em>exhibited</em>: deadlocks freeze on screen, Byzantine equivocation splits naive protocols, forged certificates bounce off signatures, write skew breaks invariants that every participant honestly checked.</div>
+      <div class="card-topics">
+        <span class="topic">Replication &amp; quorums</span>
+        <span class="topic">Failure detectors</span>
+        <span class="topic">Causal broadcast</span>
+        <span class="topic">Raft</span>
+        <span class="topic">2PC</span>
+        <span class="topic">2PL · OCC · MVCC</span>
+        <span class="topic">Bracha broadcast</span>
+        <span class="topic">PBFT-style consensus</span>
+        <span class="topic">CRDTs &amp; gossip</span>
+      </div>
+    </a>
+    <div class="card">
+      <div class="card-kicker">Visiting Scholar · 2025–2026</div>
+      <div class="card-title">University of Cambridge — Concurrent and Distributed Systems</div>
+      <div class="card-desc">Weekly small-group supervisions for Cambridge's Concurrent and Distributed Systems course, Department of Computer Science and Technology; invited seminar and guest teaching on blockchain and Ethereum.</div>
+    </div>
+    <div class="card">
+      <div class="card-kicker">Teaching Assistant · 2019–2023</div>
+      <div class="card-title">University of Bern — Cryptography · Privacy and Data Security</div>
+      <div class="card-desc">Tutorials, exercises, and assessment for the Cryptology and Data Security group's courses, alongside doctoral research on asymmetric trust and Byzantine quorum systems.</div>
+    </div>
+    <p style="font-size:12.5px;font-weight:300;color:var(--faint);margin-top:18px;max-width:680px;line-height:1.7">Academic service: program committees and reviewing for DISC (2022, 2025), OPODIS (2024, 2025), PaPoC (2025), Science of Blockchain Conference (2026), IEEE SRDS (2026), Financial Cryptography (2026), Asiacrypt (2020), and <em>Distributed Computing</em> (2021). Mentoring of EF research interns, an industrial PhD intern, and master's students.</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- PROJECTS & SOFTWARE -->
+<section id="projects">
+  <div class="w">
+    <div class="ey">Projects</div>
+    <h2>Software &amp; analyses</h2>
+    <div class="rule"></div>
+    <a class="card" href="https://github.com/ethereum/epbs-security-analysis" target="_blank" rel="noopener">
+      <div class="card-kicker">Security Analysis · Ethereum</div>
+      <div class="card-title">ePBS Security Analysis</div>
+      <div class="card-desc">Security analysis of enshrined proposer–builder separation (EIP-7732) for the Ethereum consensus layer — published under the official Ethereum organization.</div>
+    </a>
+    <a class="card" href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">
+      <div class="card-kicker">Open Course · Rust</div>
+      <div class="card-title">distributed-systems-in-rust</div>
+      <div class="card-desc">The course repository: twelve implemented modules, from a durable key-value store to Raft, PBFT with signed view changes, transactional concurrency control, and convergent replicated data types — with verdict-printing failure demos throughout.</div>
+    </a>
+    <div class="card">
+      <div class="card-kicker">In Progress · 2026</div>
+      <div class="card-title">Reliable Distributed Agent Systems</div>
+      <div class="card-desc">Ongoing work: infrastructure for autonomous AI agents that cooperate across machines — consistent task state, crash and Byzantine fault tolerance, no duplicate irreversible actions, verifiable outcomes. Distributed-systems rigor applied to agent infrastructure.</div>
+    </div>
+  </div>
+</section>
 
 <hr>
 
 <!-- PRESS -->
-<div class="s-alt">
+<section class="s-alt">
   <div class="w">
     <div class="ey">Coverage</div>
-    <div class="st">In the press</div>
+    <h2>In the press</h2>
     <div class="rule"></div>
     <div class="press-grid">
-      <a class="press-cell" href="https://www.youtube.com/watch?v=vRGw_vIJoEU" target="_blank">
+      <a class="press-cell" href="https://www.youtube.com/watch?v=vRGw_vIJoEU" target="_blank" rel="noopener">
         <div class="press-source">한국경제TV 크립토 · Apr 2026</div>
         <div class="press-title">The Secret of Ethereum's Trust Structure. The Answer is Decentralization!</div>
         <div class="press-desc">Interview with 한국경제TV 크립토 on Ethereum's trust structure and the role of decentralization.</div>
       </a>
-      <a class="press-cell" href="https://www.blockmedia.co.kr/archives/1079504" target="_blank">
+      <a class="press-cell" href="https://www.blockmedia.co.kr/archives/1079504" target="_blank" rel="noopener">
         <div class="press-source">Blockmedia · Apr 2026</div>
         <div class="press-title">이더리움, 왜 기관이 택하나… "답은 프로토콜에 있다"</div>
         <div class="press-desc">Blockmedia covers the closing talk at Ethereum Korea One on what comes next for institutions on Ethereum.</div>
       </a>
-      <a class="press-cell" href="https://a16zcrypto.com/posts/article/accountable-liveness/" target="_blank">
+      <a class="press-cell" href="https://a16zcrypto.com/posts/article/accountable-liveness/" target="_blank" rel="noopener">
         <div class="press-source">a16z crypto</div>
         <div class="press-title">'Accountable Liveness': New Paper Alert</div>
         <div class="press-desc">a16z crypto Research covers the Accountable Liveness paper, including its implications for Ethereum's inactivity leak mechanism.</div>
       </a>
     </div>
   </div>
-</div>
+</section>
 
 <hr>
 
 <!-- PUBLICATIONS -->
-<div id="publications">
-  <div class="s">
-    <div class="w">
-      <div class="ey">Publications</div>
-      <div class="st">Research output</div>
-      <div class="rule"></div>
-      <div>
+<section id="publications">
+  <div class="w">
+    <div class="ey">Publications</div>
+    <h2>Research output</h2>
+    <div class="rule"></div>
+    <div>
 
-        <div class="item">
-          <div class="cl">2026</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2601.03862" target="_blank">Majorum: Atomic Broadcast in the Sleepy Model with Optimal Resilience</a></div>
-            <div class="im"><span class="venue">Financial Cryptography 2026</span></div>
-          </div>
+      <div class="item">
+        <div class="cl">2026</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2601.03862" target="_blank" rel="noopener">Majorum: Atomic Broadcast in the Sleepy Model with Optimal Resilience</a></div>
+          <div class="im"><span class="venue">Financial Cryptography 2026</span></div>
         </div>
-
-        <div class="item">
-          <div class="cl">2026</div>
-          <div>
-            <div class="it"><a href="https://eprint.iacr.org/2025/1003" target="_blank">Low-Latency Dynamically Available Total Order Broadcast</a></div>
-            <div class="im"><span class="venue">Financial Cryptography 2026</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2504.12218" target="_blank">Accountable Liveness</a></div>
-            <div class="im"><span class="venue">ACM CCS 2025</span></div>
-            <div class="idesc">Proves when liveness accountability is achievable, providing rigorous foundations for Ethereum's inactivity leak mechanism.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2505.17891" target="_blank">DAG-based Consensus with Asymmetric Trust</a></div>
-            <div class="im"><span class="venue">ACM PODC 2025</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2310.11331" target="_blank">TOB-SVD: Total-Order Broadcast with Single-Vote Decisions in the Sleepy Model</a></div>
-            <div class="im"><span class="venue">ICDCS 2025</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2502.00892" target="_blank">A Declarative Approach to Specifying Distributed Algorithms Using Three-Valued Modal Logic</a></div>
-            <div class="im"><span class="tag">Preprint</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2411.00558" target="_blank">3-Slot-Finality Protocol for Ethereum</a></div>
-            <div class="im"><span class="tag">EF Research</span></div>
-            <div class="idesc">Reduces Ethereum finalization from 64–95 slots to 3, combining dynamic availability with partial synchrony.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2405.00549" target="_blank">A Fast Confirmation Rule for the Ethereum Consensus Protocol</a></div>
-            <div class="im"><span class="tag">Preprint</span></div>
-            <div class="idesc">Derives conditions for fast confirmation with a proved β &lt; 1/4 safety threshold.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://eprint.iacr.org/2023/868" target="_blank">Data Independent Order Policy Enforcement: Limitations and Solutions</a></div>
-            <div class="im"><span class="venue">ACM CCS 2024</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2302.11326" target="_blank">Recent Latest Message Driven GHOST: Balancing Dynamic Availability With Asynchrony Resilience</a></div>
-            <div class="im"><span class="venue">IEEE CSF 2024</span></div>
-            <div class="idesc">Introduces RLMD-GHOST, a dynamically available protocol that maintains safety during bounded asynchrony. Foundation for Ethereum's 3SF design.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2309.05347" target="_blank">Asynchrony-Resilient Sleepy Total-Order Broadcast Protocols</a></div>
-            <div class="im"><span class="venue">ACM PODC 2024</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/1906.09314" target="_blank">Asymmetric Distributed Trust</a></div>
-            <div class="im"><span class="venue">Distributed Computing, 2024</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2023</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2302.12745" target="_blank">A Simple Single Slot Finality Protocol for Ethereum</a></div>
-            <div class="im"><span class="venue">CBT @ ESORICS 2023</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2023</div>
-          <div>
-            <div class="it"><a href="https://crypto.unibe.ch/archive/theses/2023.phd.luca.zanolini.pdf" target="_blank">Asymmetric Trust in Distributed Systems</a></div>
-            <div class="im"><span class="tag">PhD Thesis</span><span class="venue">University of Bern, 2023</span></div>
-            <div class="idesc">Develops the theory of asymmetric trust in secure distributed systems — a formal model where participants hold different, possibly incompatible trust assumptions about each other.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2022</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2112.06615" target="_blank">Quick Order Fairness</a></div>
-            <div class="im"><span class="venue">Financial Cryptography 2022</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2022</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2211.05630" target="_blank">Quorum Systems in Permissionless Networks</a></div>
-            <div class="im"><span class="venue">OPODIS 2022</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2022</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2211.12050" target="_blank">Modeling Resources in Permissionless Longest-chain Total-order Broadcast</a></div>
-            <div class="im"><span class="venue">OPODIS 2022</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2021</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2107.11331" target="_blank">How to Trust Strangers: Composition of Byzantine Quorum Systems</a></div>
-            <div class="im"><span class="venue">SRDS 2021</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2021</div>
-          <div>
-            <div class="it"><a href="https://arxiv.org/abs/2101.05543" target="_blank">On the Synchronization Power of Token Smart Contracts</a></div>
-            <div class="im"><span class="venue">ICDCS 2021</span></div>
-          </div>
-        </div>
-
       </div>
-      <div class="more">Full list on <a href="https://scholar.google.com/citations?user=oi4uoSgAAAAJ&hl=en" target="_blank">Google Scholar</a>, <a href="https://dblp.uni-trier.de/pid/265/5787.html" target="_blank">DBLP</a>, and <a href="https://arxiv.org/search/cs?searchtype=author&query=Zanolini,+L" target="_blank">arXiv</a>.</div>
+
+      <div class="item">
+        <div class="cl">2026</div>
+        <div>
+          <div class="it"><a href="https://eprint.iacr.org/2025/1003" target="_blank" rel="noopener">Low-Latency Dynamically Available Total Order Broadcast</a></div>
+          <div class="im"><span class="venue">Financial Cryptography 2026</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2504.12218" target="_blank" rel="noopener">Accountable Liveness</a></div>
+          <div class="im"><span class="venue">ACM CCS 2025</span></div>
+          <div class="idesc">Proves when liveness accountability is achievable, providing rigorous foundations for Ethereum's inactivity leak mechanism.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2505.17891" target="_blank" rel="noopener">DAG-based Consensus with Asymmetric Trust</a></div>
+          <div class="im"><span class="venue">ACM PODC 2025</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2310.11331" target="_blank" rel="noopener">TOB-SVD: Total-Order Broadcast with Single-Vote Decisions in the Sleepy Model</a></div>
+          <div class="im"><span class="venue">ICDCS 2025</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2502.00892" target="_blank" rel="noopener">A Declarative Approach to Specifying Distributed Algorithms Using Three-Valued Modal Logic</a></div>
+          <div class="im"><span class="tag">Preprint</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2411.00558" target="_blank" rel="noopener">3-Slot-Finality Protocol for Ethereum</a></div>
+          <div class="im"><span class="tag">EF Research</span></div>
+          <div class="idesc">Reduces Ethereum finalization from 64–95 slots to 3, combining dynamic availability with partial synchrony.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2405.00549" target="_blank" rel="noopener">A Fast Confirmation Rule for the Ethereum Consensus Protocol</a></div>
+          <div class="im"><span class="tag">Preprint</span></div>
+          <div class="idesc">Derives conditions for fast confirmation with a proved β &lt; 1/4 safety threshold.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://eprint.iacr.org/2023/868" target="_blank" rel="noopener">Data Independent Order Policy Enforcement: Limitations and Solutions</a></div>
+          <div class="im"><span class="venue">ACM CCS 2024</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2302.11326" target="_blank" rel="noopener">Recent Latest Message Driven GHOST: Balancing Dynamic Availability With Asynchrony Resilience</a></div>
+          <div class="im"><span class="venue">IEEE CSF 2024</span></div>
+          <div class="idesc">Introduces RLMD-GHOST, a dynamically available protocol that maintains safety during bounded asynchrony. Foundation for Ethereum's 3SF design.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2309.05347" target="_blank" rel="noopener">Asynchrony-Resilient Sleepy Total-Order Broadcast Protocols</a></div>
+          <div class="im"><span class="venue">ACM PODC 2024</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/1906.09314" target="_blank" rel="noopener">Asymmetric Distributed Trust</a></div>
+          <div class="im"><span class="venue">Distributed Computing, 2024</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2023</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2302.12745" target="_blank" rel="noopener">A Simple Single Slot Finality Protocol for Ethereum</a></div>
+          <div class="im"><span class="venue">CBT @ ESORICS 2023</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2023</div>
+        <div>
+          <div class="it"><a href="https://crypto.unibe.ch/archive/theses/2023.phd.luca.zanolini.pdf" target="_blank" rel="noopener">Asymmetric Trust in Distributed Systems</a></div>
+          <div class="im"><span class="tag">PhD Thesis</span><span class="venue">University of Bern, 2023</span></div>
+          <div class="idesc">Develops the theory of asymmetric trust in secure distributed systems — a formal model where participants hold different, possibly incompatible trust assumptions about each other.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2022</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2112.06615" target="_blank" rel="noopener">Quick Order Fairness</a></div>
+          <div class="im"><span class="venue">Financial Cryptography 2022</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2022</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2211.05630" target="_blank" rel="noopener">Quorum Systems in Permissionless Networks</a></div>
+          <div class="im"><span class="venue">OPODIS 2022</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2022</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2211.12050" target="_blank" rel="noopener">Modeling Resources in Permissionless Longest-chain Total-order Broadcast</a></div>
+          <div class="im"><span class="venue">OPODIS 2022</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2021</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2107.11331" target="_blank" rel="noopener">How to Trust Strangers: Composition of Byzantine Quorum Systems</a></div>
+          <div class="im"><span class="venue">SRDS 2021</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2021</div>
+        <div>
+          <div class="it"><a href="https://arxiv.org/abs/2101.05543" target="_blank" rel="noopener">On the Synchronization Power of Token Smart Contracts</a></div>
+          <div class="im"><span class="venue">ICDCS 2021</span></div>
+        </div>
+      </div>
+
     </div>
+    <div class="more">Full list on <a href="https://scholar.google.com/citations?user=oi4uoSgAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://dblp.uni-trier.de/pid/265/5787.html" target="_blank" rel="noopener">DBLP</a>, and <a href="https://arxiv.org/search/cs?searchtype=author&query=Zanolini,+L" target="_blank" rel="noopener">arXiv</a>.</div>
   </div>
-</div>
+</section>
 
 <hr>
 
 <!-- TALKS -->
-<div class="s-alt" id="talks">
+<section class="s-alt" id="talks">
   <div class="w">
-    <div class="ey">Talks & Presentations</div>
-    <div class="st">Where I've spoken</div>
+    <div class="ey">Talks &amp; Presentations</div>
+    <h2>Where I've spoken</h2>
     <div class="rule"></div>
     <div>
+
+      <div class="item">
+        <div class="cl">Aug 2026<br>Daejeon</div>
+        <div>
+          <div class="it">What Does ePBS Actually Guarantee?</div>
+          <div class="im"><span class="tag">Invited</span><span class="venue">KAIST School of Computing — Research Seminar</span></div>
+        </div>
+      </div>
 
       <div class="item">
         <div class="cl">Apr 2026<br>Seoul</div>
@@ -427,7 +569,23 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
         <div>
           <div class="it">Towards a Faster Finality Protocol for Ethereum</div>
           <div class="im"><span class="tag">Keynote</span><span class="venue">PaPoC 2025 — Principles and Practice of Consistency for Distributed Data</span></div>
-          <a class="tlink" href="https://drive.google.com/file/d/1qMjpLHNliLfP7bqLNmU2AHGmXq5LDZV2/view" target="_blank">Watch →</a>
+          <a class="tlink" href="https://drive.google.com/file/d/1qMjpLHNliLfP7bqLNmU2AHGmXq5LDZV2/view" target="_blank" rel="noopener">Watch →</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024<br>Bangkok</div>
+        <div>
+          <div class="it">A Fast Confirmation Rule for the Ethereum Consensus Protocol</div>
+          <div class="im"><span class="venue">Devcon</span></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2023<br>Yale</div>
+        <div>
+          <div class="it">The Ethereum Consensus Protocol</div>
+          <div class="im"><span class="tag">Invited</span><span class="venue">Yale University</span></div>
         </div>
       </div>
 
@@ -436,7 +594,7 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
         <div>
           <div class="it">Recent Latest Message Driven GHOST: Balancing Dynamic Availability With Asynchrony Resilience</div>
           <div class="im"><span class="venue">a16z crypto Research Summer School</span></div>
-          <a class="tlink" href="https://www.youtube.com/watch?v=F2olypDSVnA" target="_blank">Watch on YouTube →</a>
+          <a class="tlink" href="https://www.youtube.com/watch?v=F2olypDSVnA" target="_blank" rel="noopener">Watch on YouTube →</a>
         </div>
       </div>
 
@@ -490,100 +648,98 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
 
     </div>
   </div>
-</div>
+</section>
 
 <hr>
 
 <!-- WRITING -->
-<div id="writing">
-  <div class="s">
-    <div class="w">
-      <div class="ey">Writing</div>
-      <div class="st">Posts & research notes</div>
-      <div class="rule"></div>
-      <div>
+<section id="writing">
+  <div class="w">
+    <div class="ey">Writing</div>
+    <h2>Posts &amp; research notes</h2>
+    <div class="rule"></div>
+    <div>
 
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank">Finality Is in the Eye of the Behodler</a></div>
-            <div class="im"><span class="tag">With Vitalik Buterin · Ittai Abraham</span></div>
-            <div class="idesc">A conceptual framework exploring the multiple layers of finality in blockchains — probabilistic, cryptoeconomic, threshold, and social — and how finality strengthens over time. Published on Decentralized Thoughts.</div>
-          </div>
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank" rel="noopener">Finality Is in the Eye of the Behodler</a></div>
+          <div class="im"><span class="tag">With Vitalik Buterin · Ittai Abraham</span></div>
+          <div class="idesc">A conceptual framework exploring the multiple layers of finality in blockchains — probabilistic, cryptoeconomic, threshold, and social — and how finality strengthens over time. Published on Decentralized Thoughts.</div>
         </div>
-
-        <div class="item">
-          <div class="cl">2025</div>
-          <div>
-            <div class="it"><a href="https://ethresear.ch/t/why-ethereum-needs-a-dynamically-available-protocol/24418" target="_blank">Why Ethereum Needs a Dynamically Available Protocol</a></div>
-            <div class="im"><span class="tag">ethresear.ch</span></div>
-            <div class="idesc">On the fundamental reasons why Ethereum's consensus layer must remain live even as validator participation fluctuates — and what that demands from protocol design.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://ethresear.ch/t/integrating-3sf-with-epbs-focil-and-peerdas/22909" target="_blank">Integrating 3SF with ePBS, FOCIL, and PeerDAS</a></div>
-            <div class="im"><span class="tag">ethresear.ch</span></div>
-            <div class="idesc">Technical analysis of how the 3-Slot Finality protocol interacts with other major protocol upgrades on Ethereum's near-term roadmap.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2024</div>
-          <div>
-            <div class="it"><a href="https://ethresear.ch/t/3-slot-finality-ssf-is-not-about-single-slot/20927" target="_blank">3-Slot Finality: SSF is Not About "Single" Slot</a></div>
-            <div class="im"><span class="tag">ethresear.ch</span></div>
-            <div class="idesc">Introducing the 3SF protocol and reframing the single-slot finality goal around practical network constraints and validator set scale.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2023</div>
-          <div>
-            <div class="it"><a href="https://ethresear.ch/t/confirmation-rule-for-ethereum-pos/15454" target="_blank">Confirmation Rule for Ethereum PoS</a></div>
-            <div class="im"><span class="tag">ethresear.ch</span></div>
-            <div class="idesc">Formal analysis of a fast confirmation rule for Ethereum's proof-of-stake consensus protocol, including the β &lt; 1/4 safety threshold.</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="cl">2023</div>
-          <div>
-            <div class="it"><a href="https://ethresear.ch/t/a-simple-single-slot-finality-protocol/14920" target="_blank">A Simple Single Slot Finality Protocol</a></div>
-            <div class="im"><span class="tag">ethresear.ch</span></div>
-            <div class="idesc">Introduces RLMD-GHOST combined with Casper-FFG to achieve single-slot finality, showing how honest proposals can be finalized within the same slot they are proposed.</div>
-          </div>
-        </div>
-
       </div>
-      <div class="more">More on <a href="https://ethresear.ch/u/luca_zanolini" target="_blank">ethresear.ch</a>.</div>
+
+      <div class="item">
+        <div class="cl">2025</div>
+        <div>
+          <div class="it"><a href="https://ethresear.ch/t/why-ethereum-needs-a-dynamically-available-protocol/24418" target="_blank" rel="noopener">Why Ethereum Needs a Dynamically Available Protocol</a></div>
+          <div class="im"><span class="tag">ethresear.ch</span></div>
+          <div class="idesc">On the fundamental reasons why Ethereum's consensus layer must remain live even as validator participation fluctuates — and what that demands from protocol design.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://ethresear.ch/t/integrating-3sf-with-epbs-focil-and-peerdas/22909" target="_blank" rel="noopener">Integrating 3SF with ePBS, FOCIL, and PeerDAS</a></div>
+          <div class="im"><span class="tag">ethresear.ch</span></div>
+          <div class="idesc">Technical analysis of how the 3-Slot Finality protocol interacts with other major protocol upgrades on Ethereum's near-term roadmap.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2024</div>
+        <div>
+          <div class="it"><a href="https://ethresear.ch/t/3-slot-finality-ssf-is-not-about-single-slot/20927" target="_blank" rel="noopener">3-Slot Finality: SSF is Not About "Single" Slot</a></div>
+          <div class="im"><span class="tag">ethresear.ch</span></div>
+          <div class="idesc">Introducing the 3SF protocol and reframing the single-slot finality goal around practical network constraints and validator set scale.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2023</div>
+        <div>
+          <div class="it"><a href="https://ethresear.ch/t/confirmation-rule-for-ethereum-pos/15454" target="_blank" rel="noopener">Confirmation Rule for Ethereum PoS</a></div>
+          <div class="im"><span class="tag">ethresear.ch</span></div>
+          <div class="idesc">Formal analysis of a fast confirmation rule for Ethereum's proof-of-stake consensus protocol, including the β &lt; 1/4 safety threshold.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="cl">2023</div>
+        <div>
+          <div class="it"><a href="https://ethresear.ch/t/a-simple-single-slot-finality-protocol/14920" target="_blank" rel="noopener">A Simple Single Slot Finality Protocol</a></div>
+          <div class="im"><span class="tag">ethresear.ch</span></div>
+          <div class="idesc">Introduces RLMD-GHOST combined with Casper-FFG to achieve single-slot finality, showing how honest proposals can be finalized within the same slot they are proposed.</div>
+        </div>
+      </div>
+
     </div>
+    <div class="more">More on <a href="https://ethresear.ch/u/luca_zanolini" target="_blank" rel="noopener">ethresear.ch</a>.</div>
   </div>
-</div>
+</section>
 
 <hr>
 
 <!-- CONTACT -->
-<div class="s-alt" id="contact">
+<section class="s-alt" id="contact">
   <div class="w">
     <div class="ey">Contact</div>
-    <div class="st">Get in touch</div>
+    <h2>Get in touch</h2>
     <div class="rule"></div>
-    <p style="font-size:13px;font-weight:300;color:var(--gray-mid);max-width:460px;margin-bottom:28px;line-height:1.8">I'm happy to hear from researchers, builders, and anyone working on consensus, distributed systems, or Ethereum's protocol layer.</p>
+    <p style="font-size:13.5px;font-weight:300;color:var(--muted);max-width:480px;margin-bottom:28px;line-height:1.8">I'm happy to hear from researchers, builders, and anyone working on consensus, distributed systems, or reliable agent infrastructure.</p>
     <div class="c-grid">
       <div>
         <div class="c-label">Email</div>
-        <div class="c-val"><a href="mailto:luca.zanolini@ethereum.org">luca.zanolini@<br>ethereum.org</a></div>
+        <div class="c-val"><a href="mailto:lucazanolini1992@gmail.com">lucazanolini1992@gmail.com</a></div>
       </div>
       <div>
-        <div class="c-label">X</div>
-        <div class="c-val"><a href="https://x.com/luca_zanolini" target="_blank">@luca_zanolini</a></div>
+        <div class="c-label">GitHub</div>
+        <div class="c-val"><a href="https://github.com/luca-zanolini" target="_blank" rel="noopener">luca-zanolini</a></div>
       </div>
       <div>
-        <div class="c-label">LinkedIn</div>
-        <div class="c-val"><a href="https://www.linkedin.com/in/luca-zanolini/" target="_blank">luca-zanolini</a></div>
+        <div class="c-label">X / LinkedIn</div>
+        <div class="c-val"><a href="https://x.com/luca_zanolini" target="_blank" rel="noopener">@luca_zanolini</a> · <a href="https://www.linkedin.com/in/luca-zanolini/" target="_blank" rel="noopener">in</a></div>
       </div>
       <div>
         <div class="c-label">Based in</div>
@@ -591,7 +747,7 @@ footer span{font-size:11px;font-weight:300;color:var(--gray-light)}
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <footer>
   <div class="footer-inner">
