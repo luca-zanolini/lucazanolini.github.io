@@ -24,10 +24,14 @@
   --max:900px;
 }
 @media(prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --bg:#000000;--bg2:#161617;--ink:#F5F5F7;--body:#D2D2D7;--muted:#A1A1A6;--faint:#6E6E73;
     --rule:#2C2C2E;--accent:#2997FF;--accent-soft:rgba(41,151,255,0.30);--accent-wash:#0B2340;
   }
+}
+:root[data-theme="dark"]{
+  --bg:#000000;--bg2:#161617;--ink:#F5F5F7;--body:#D2D2D7;--muted:#A1A1A6;--faint:#6E6E73;
+  --rule:#2C2C2E;--accent:#2997FF;--accent-soft:rgba(41,151,255,0.30);--accent-wash:#0B2340;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.75}
@@ -39,6 +43,13 @@ nav{position:fixed;top:0;left:0;right:0;background:color-mix(in srgb,var(--bg) 9
 .nav-links{display:flex;gap:22px}
 .nav-links a{font-size:11px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1.2px;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:22px}
+.theme-toggle{display:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer;align-items:center;justify-content:center;flex-shrink:0;transition:color 0.2s,border-color 0.2s}
+html[data-theme] .theme-toggle{display:inline-flex}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle svg{width:15px;height:15px}
+.theme-toggle .ico-sun,[data-theme="dark"] .theme-toggle .ico-moon{display:none}
+[data-theme="dark"] .theme-toggle .ico-sun{display:block}
 .w{max-width:var(--max);margin:0 auto;padding:0 32px}
 /* HERO */
 .hero-s{padding:112px 0 60px;position:relative;overflow:hidden}
@@ -128,6 +139,12 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
 @media(max-width:680px){
   .nav-inner{padding:13px 16px}
   .nav-links{gap:12px}
+  .nav-name{white-space:nowrap;margin-right:14px}
+  .nav-right{gap:12px;min-width:0}
+  .nav-links{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(to right,#000 82%,transparent);mask-image:linear-gradient(to right,#000 82%,transparent)}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap}
+  .theme-toggle{width:26px;height:26px}
   .nav-links a{font-size:10px}
   .w{padding:0 16px}
   .hero{grid-template-columns:1fr;gap:18px}
@@ -140,19 +157,30 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
   .news-item{grid-template-columns:72px 1fr}
 }
 </style>
+<script>
+(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}
+if(t!=='light'&&t!=='dark')t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
     <a class="nav-name" href="#about">Luca Zanolini</a>
-    <div class="nav-links">
-      <a href="#research">Research</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#publications">Papers</a>
-      <a href="#talks">Talks</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#publications">Papers</a>
+        <a href="#talks">Talks</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -768,5 +796,19 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
   </div>
 </footer>
 
+<script>
+(function(){
+  var root=document.documentElement,btn=document.querySelector('.theme-toggle'),mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function apply(t,save){
+    root.setAttribute('data-theme',t);
+    btn.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');
+    if(save){try{localStorage.setItem('theme',t)}catch(e){}}
+  }
+  apply(root.getAttribute('data-theme')||(mq.matches?'dark':'light'));
+  btn.addEventListener('click',function(){apply(root.getAttribute('data-theme')==='dark'?'light':'dark',true)});
+  // with no saved choice, keep following the device setting
+  if(mq.addEventListener)mq.addEventListener('change',function(e){var saved;try{saved=localStorage.getItem('theme')}catch(x){}if(!saved)apply(e.matches?'dark':'light')});
+})();
+</script>
 </body>
 </html>
