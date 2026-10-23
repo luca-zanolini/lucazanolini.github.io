@@ -175,7 +175,8 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
         <div class="bio">
           <p>I work on distributed systems across the full range from theory to running code — designing consensus protocols, proving them correct, and carrying them into specifications, implementations, and tests. The underlying question is how mutually distrusting machines agree, and when a network can irreversibly commit to a decision.</p>
           <p>Until September 2026 I was a Research Scientist on the <a class="il" href="https://ethereum.org/en/foundation/" target="_blank" rel="noopener">Ethereum Foundation</a>'s Protocol Consensus team, working on the long-term evolution of Ethereum's consensus layer: I co-designed <a class="il" href="https://arxiv.org/abs/2411.00558" target="_blank" rel="noopener">3-Slot Finality</a>, Ethereum's planned faster-finality upgrade, co-authored the <a class="il" href="https://arxiv.org/abs/2405.00549" target="_blank" rel="noopener">fast confirmation rule</a> and contributed to its specification and testing, and led the <a class="il" href="https://github.com/ethereum/epbs-security-analysis" target="_blank" rel="noopener">security analysis</a> of enshrined proposer–builder separation — an analysis that surfaced specification bugs, since fixed upstream in <code style="font-size:12.5px">consensus-specs</code>. I hold a PhD from the <a class="il" href="https://crypto.unibe.ch" target="_blank" rel="noopener">University of Bern</a>, where I developed the theory of asymmetric trust under Prof. <a class="il" href="https://crypto.unibe.ch/cc/" target="_blank" rel="noopener">Christian Cachin</a>; my background is in Mathematics (Università Cattolica del Sacro Cuore), with a focus on abstract algebra and cryptography.</p>
-          <p>I teach the way I like to learn — by building. As a Visiting Scholar at the University of Cambridge (2025–26) I supervised students in Concurrent and Distributed Systems, and my open course <a class="il" href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">Concurrent and Distributed Systems in Rust</a> implements the field's classical protocols from scratch as executable, adversarially tested artifacts. My current work applies distributed-systems rigor to autonomous AI: <a class="il" href="https://github.com/luca-zanolini/reliable-distributed-agent-systems" target="_blank" rel="noopener">Reliable Distributed Agent Systems</a>, open infrastructure for cooperating agent systems, built in Rust.</p>
+          <p>I am now exploring multi-agent systems and AI safety, applying distributed computing to AI agents: once agents act with real consequences, which failures are correlated, who must agree, and what a system still guarantees under attack are distributed-systems questions. My first paper in this direction, <a class="il" href="https://arxiv.org/abs/2610.29178" target="_blank" rel="noopener">Correlated Failures of AI Approval Monitors</a>, models AI monitors as a fail-prone system and shows that approval rules should count independent sources of evidence, not votes. Alongside it I am building <a class="il" href="https://github.com/luca-zanolini/reliable-distributed-agent-systems" target="_blank" rel="noopener">Reliable Distributed Agent Systems</a>, open infrastructure for cooperating agent systems, built in Rust.</p>
+          <p>I teach the way I like to learn — by building. As a Visiting Scholar at the University of Cambridge (2025–26) I supervised students in Concurrent and Distributed Systems, and my open course <a class="il" href="https://github.com/luca-zanolini/distributed-systems-in-rust" target="_blank" rel="noopener">Concurrent and Distributed Systems in Rust</a> implements the field's classical protocols from scratch as executable, adversarially tested artifacts.</p>
         </div>
         <div class="social">
           <a class="cv" href="Luca_Zanolini_CV.pdf" target="_blank" rel="noopener">CV</a>
@@ -220,6 +221,11 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
     <div class="rule"></div>
     <div class="hl-grid">
       <div class="hl-cell">
+        <div class="hl-num">AI Safety · 2026</div>
+        <div class="hl-title"><a href="https://arxiv.org/abs/2610.29178" target="_blank" rel="noopener">Correlated Failures of AI Approval Monitors</a></div>
+        <div class="hl-desc">Treats the monitors that approve an AI agent's actions as a fail-prone system: monitors sharing a base model or an evidence source fail together. On payment approval, rules that count independent sources rather than votes block far fewer correct payments at equal safety.</div>
+      </div>
+      <div class="hl-cell">
         <div class="hl-num">Consensus · 2025</div>
         <div class="hl-title"><a href="https://arxiv.org/abs/2504.12218" target="_blank" rel="noopener">Accountable Liveness</a></div>
         <div class="hl-desc">Proved when and how validators can be formally identified as responsible for stalling Ethereum. Rigorous foundations for Ethereum's inactivity leak mechanism. Published at ACM CCS 2025.</div>
@@ -228,11 +234,6 @@ footer span{font-size:11px;font-weight:300;color:var(--faint)}
         <div class="hl-num">Ethereum · 2024</div>
         <div class="hl-title"><a href="https://arxiv.org/abs/2411.00558" target="_blank" rel="noopener">3-Slot-Finality Protocol for Ethereum</a></div>
         <div class="hl-desc">Reduces Ethereum's finalization from 64–95 slots to just 3, combining a dynamically available protocol with a partially synchronous finality gadget.</div>
-      </div>
-      <div class="hl-cell">
-        <div class="hl-num">Writing · 2025</div>
-        <div class="hl-title"><a href="https://decentralizedthoughts.github.io/2025-11-23-finality/" target="_blank" rel="noopener">Finality Is in the Eye of the Beholder</a></div>
-        <div class="hl-desc">With Vitalik Buterin and Ittai Abraham. A framework for the multiple layers of finality — probabilistic, cryptoeconomic, and social. Published on Decentralized Thoughts.</div>
       </div>
     </div>
 
